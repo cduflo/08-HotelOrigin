@@ -38,21 +38,5 @@ namespace HotelOrigin
 
             this.Close();
         }
-
-        private void buttonCancel_Click(object sender, RoutedEventArgs e)
-        {
-            if (textBoxEmail.Text != "" || textBoxFirst.Text != "" || textBoxLast.Text != "" || textBoxTele.Text != "")
-            {
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Unsaved changes. Are you sure you want to close this window?", "Unsaved Work", System.Windows.MessageBoxButton.YesNo);
-                if (messageBoxResult == MessageBoxResult.Yes)
-                {
-                    this.Close();
-                }
-            }
-            else
-            {
-                this.Close();
-            }
-        }
     }
 }

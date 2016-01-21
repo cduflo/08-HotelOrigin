@@ -12,28 +12,37 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HotelOrigin.Core.Repository;
+using HotelOrigin.Core.Domain;
 
 namespace HotelOrigin
 {
     /// <summary>
-    /// Interaction logic for CustomerAdd.xaml
+    /// Interaction logic for RoomAdd1.xaml
     /// </summary>
-    public partial class CustomerAdd : Window
+    public partial class RoomAdd1 : Window
     {
-        public CustomerAdd()
+        bool tempTV = false;
+
+        public RoomAdd1()
         {
             InitializeComponent();
         }
 
-        private void buttonSubmit_Click(object sender, RoutedEventArgs e)
+
+        private void checkBox_Checked(object sender, RoutedEventArgs e)
         {
-            if (textBoxEmail.Text == "" || textBoxFirst.Text == "" || textBoxLast.Text == "" || textBoxTele.Text == "")
+            tempTV = true;
+        }
+
+        private void buttonSubmit_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (textBoxBeds.Text == "" || textBoxNum.Text == "")
             {
                 MessageBox.Show("Please enter all fields before submitting.");
             }
             else
             {
-                CustomerRepository.Create(textBoxFirst.Text, textBoxLast.Text, textBoxEmail.Text, textBoxTele.Text);
+                RoomRepository.Create(Convert.ToInt32(textBoxNum.Text), Convert.ToInt32(textBoxBeds.Text), tempTV);
             }
 
             this.Close();
@@ -41,7 +50,7 @@ namespace HotelOrigin
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (textBoxEmail.Text != "" || textBoxFirst.Text != "" || textBoxLast.Text != "" || textBoxTele.Text != "")
+            if (textBoxBeds.Text != "" || textBoxNum.Text != "" || tempTV == true)
             {
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Unsaved changes. Are you sure you want to close this window?", "Unsaved Work", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace HotelOrigin.Core.Domain
 {
-    class Rooms
+    public class Rooms
     {
+        public int id {get; set;}
+        public int RoomNumber { get; set; }
+        public int Beds { get; set; }
+        public bool HasTV { get; set; }
     }
 }

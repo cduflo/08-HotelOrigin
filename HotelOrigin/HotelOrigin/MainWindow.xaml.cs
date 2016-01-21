@@ -33,7 +33,8 @@ namespace HotelOrigin
 
         private void buttonRoomMan_Click(object sender, RoutedEventArgs e)
         {
-
+            RoomGrid roomGridWin = new RoomGrid();
+            roomGridWin.ShowDialog();
         }
 
         private void buttonResMan_Click(object sender, RoutedEventArgs e)
