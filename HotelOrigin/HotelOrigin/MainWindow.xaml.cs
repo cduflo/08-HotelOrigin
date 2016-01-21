@@ -28,18 +28,19 @@ namespace HotelOrigin
         private void buttonCustMan_Click(object sender, RoutedEventArgs e)
         {
             CustomerList custListWin = new CustomerList();
-            custListWin.ShowDialog();
+            custListWin.Show();
         }
 
         private void buttonRoomMan_Click(object sender, RoutedEventArgs e)
         {
             RoomGrid roomGridWin = new RoomGrid();
-            roomGridWin.ShowDialog();
+            roomGridWin.Show();
         }
 
         private void buttonResMan_Click(object sender, RoutedEventArgs e)
         {
-
+            ReservationGrid resGridWin = new ReservationGrid();
+            resGridWin.Show();
         }
     }
 }

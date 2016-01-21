@@ -24,6 +24,7 @@ namespace HotelOrigin.Core.Repository
             room.HasTV = tv;
             rooms.Add(room);
             return new Rooms();
+
         }
 
         public static Rooms GetByID(int iD)
