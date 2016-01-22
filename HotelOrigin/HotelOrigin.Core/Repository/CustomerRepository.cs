@@ -13,7 +13,7 @@ namespace HotelOrigin.Core.Repository
     public class CustomerRepository
     {
         public static ObservableCollection<HotelOrigin.Core.Domain.Customer> customers = new ObservableCollection<Domain.Customer>();
-        public static int idCounter = 0;
+        public static int idCounter = GetLastID();
 
         public static Customer Create(string fn, string ln, string em, string tl)
         {
@@ -32,7 +32,7 @@ namespace HotelOrigin.Core.Repository
         {
             return customers.FirstOrDefault(c => c.id == iD);
         }
-        /*
+ 
         public static int GetLastID()
         {
             List<int> IDS = new List<int>();
@@ -49,7 +49,7 @@ namespace HotelOrigin.Core.Repository
                 return (IDS.Max());
             }
         }
-        */
+ 
         public static ObservableCollection<Customer> GetAll()
         {
             return customers;

@@ -21,7 +21,7 @@ namespace HotelOrigin
     /// </summary>
     public partial class RoomAdd1 : Window
     {
-        bool tempTV = false;
+        bool TV = false;
 
         public RoomAdd1()
         {
@@ -31,7 +31,12 @@ namespace HotelOrigin
 
         private void checkBox_Checked(object sender, RoutedEventArgs e)
         {
-            tempTV = true;
+            TV = true;
+        }
+
+        private void checkBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            TV = false;
         }
 
         private void buttonSubmit_Click_1(object sender, RoutedEventArgs e)
@@ -42,7 +47,7 @@ namespace HotelOrigin
             }
             else
             {
-                RoomRepository.Create(Convert.ToInt32(textBoxNum.Text), Convert.ToInt32(textBoxBeds.Text), tempTV);
+                RoomRepository.Create(Convert.ToInt32(textBoxNum.Text), Convert.ToInt32(textBoxBeds.Text), TV);
             }
 
             this.Close();
@@ -50,7 +55,7 @@ namespace HotelOrigin
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (textBoxBeds.Text != "" || textBoxNum.Text != "" || tempTV == true)
+            if (textBoxBeds.Text != "" || textBoxNum.Text != "" || TV == true)
             {
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Unsaved changes. Are you sure you want to close this window?", "Unsaved Work", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
