@@ -13,7 +13,7 @@ namespace HotelOrigin.Core.Repository
     public class CustomerRepository
     {
         public static ObservableCollection<HotelOrigin.Core.Domain.Customer> customers = new ObservableCollection<Domain.Customer>();
-        public static int idCounter = GetLastID();
+        public static int idCounter = 0;
 
         public static Customer Create(string fn, string ln, string em, string tl)
         {

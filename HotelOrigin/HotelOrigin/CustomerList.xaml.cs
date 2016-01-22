@@ -27,6 +27,7 @@ namespace HotelOrigin
         {
             InitializeComponent();
             dataGridCustomers.ItemsSource = HotelOrigin.Core.Repository.CustomerRepository.customers;
+            dataGridCustomers.IsReadOnly = true;
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)

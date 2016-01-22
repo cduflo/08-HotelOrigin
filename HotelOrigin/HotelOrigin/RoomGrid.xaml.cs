@@ -25,6 +25,7 @@ namespace HotelOrigin
         {
             InitializeComponent();
             dataGridRooms.ItemsSource = HotelOrigin.Core.Repository.RoomRepository.rooms;
+            dataGridRooms.IsReadOnly = true;
         }
 
         private void buttonDelete_Click_1(object sender, RoutedEventArgs e)

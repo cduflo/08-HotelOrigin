@@ -25,12 +25,20 @@ namespace HotelOrigin
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List counters;
+
         public MainWindow()
         {
+
+
             InitializeComponent();
             LoadFromDiskCus();
             LoadFromDiskRes();
             LoadFromDiskRoom();
+
+            
+
+            CustomerRepository.idCounter = CustomerRepository.GetLastID();
         }
 
         private void buttonCustMan_Click(object sender, RoutedEventArgs e)
@@ -71,11 +79,11 @@ namespace HotelOrigin
 
         public static void LoadFromDiskCus()
         {
-            if(File.Exists("customers.json"))
+            if (File.Exists("customers.json"))
             {
                 string json = File.ReadAllText("customers.json");
                 CustomerRepository.customers = JsonConvert.DeserializeObject<ObservableCollection<Customer>>(json);
-                            }
+            }
         }
 
         public static void LoadFromDiskRoom()

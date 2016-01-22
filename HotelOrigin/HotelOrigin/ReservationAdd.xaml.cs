@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HotelOrigin.Core.Repository;
 using HotelOrigin.Core.Domain;
-
+using System.Collections.ObjectModel;
 
 namespace HotelOrigin
 {
@@ -26,22 +26,29 @@ namespace HotelOrigin
         {
             InitializeComponent();
             comboBoxCust.ItemsSource = HotelOrigin.Core.Repository.CustomerRepository.customers;
+            comboBoxCust.DisplayMemberPath = "lastName";
+            //            comboBoxCust.SelectedValuePath;
             comboBoxRoom.ItemsSource = HotelOrigin.Core.Repository.RoomRepository.rooms;
+            comboBoxRoom.DisplayMemberPath = "RoomNumber";
         }
 
         private void buttonSubmit_Click(object sender, RoutedEventArgs e)
         {
             DateTime ci = checkInDatePicker.SelectedDate ?? DateTime.Now;
             DateTime co = checkOutDatePicker.SelectedDate ?? DateTime.Now;
+            int f = Convert.ToInt32(comboBoxCust.SelectedValue.ToString());
+            Customer x = CustomerRepository.GetByID(f);
+            int j = Convert.ToInt32(comboBoxRoom.SelectedValue.ToString());
+            Rooms y = RoomRepository.GetByID(j);
 
-            if ( comboBoxCust.SelectedItem == null || comboBoxRoom.SelectedItem == null || checkInDatePicker.SelectedDate == null || checkOutDatePicker.SelectedDate == null)
+            if (comboBoxCust.SelectedItem == null || comboBoxRoom.SelectedItem == null || checkInDatePicker.SelectedDate == null || checkOutDatePicker.SelectedDate == null)
             {
                 MessageBox.Show("Please enter all fields before submitting.");
             }
             else
             {
-                
-                ReservationRepository.Create(comboBoxCust.SelectedItem, comboBoxRoom.SelectedItem, ci, co, textBoxNote.Text);
+
+                ReservationRepository.Create(x, y, ci, co, textBoxNote.Text);
             }
 
             this.Close();

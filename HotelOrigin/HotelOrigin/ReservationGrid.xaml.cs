@@ -25,16 +25,37 @@ namespace HotelOrigin
         {
             InitializeComponent();
             dataGridReservations.ItemsSource = HotelOrigin.Core.Repository.ReservationRepository.reservations;
+            DataGridTextColumn cusColumn = new DataGridTextColumn();
+            cusColumn.Header = "Customer";
+            cusColumn.Binding = new Binding("Customer.lastName");
+            dataGridReservations.Columns.Add(cusColumn);
+            DataGridTextColumn roomColumn = new DataGridTextColumn();
+            roomColumn.Header = "Room";
+            roomColumn.Binding = new Binding("Room.RoomNumber");
+            dataGridReservations.Columns.Add(roomColumn);
+            DataGridTextColumn ciColumn = new DataGridTextColumn();
+            ciColumn.Header = "Check-In";
+            ciColumn.Binding = new Binding("CheckIn");
+            dataGridReservations.Columns.Add(ciColumn);
+            DataGridTextColumn coColumn = new DataGridTextColumn();
+            coColumn.Header = "Check-Out";
+            coColumn.Binding = new Binding("CheckOut");
+            dataGridReservations.Columns.Add(coColumn);                 
+            DataGridTextColumn noteColumn = new DataGridTextColumn();
+            noteColumn.Header = "Notes";
+            noteColumn.Binding = new Binding("Notes");
+            dataGridReservations.Columns.Add(noteColumn);
+            
 
+            dataGridReservations.IsReadOnly = true;
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
             ReservationAdd addwin = new ReservationAdd();
             addwin.ShowDialog();
-
         }
-
+        
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridReservations.SelectedItem == null)

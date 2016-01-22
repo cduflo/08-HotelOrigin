@@ -21,26 +21,27 @@ namespace HotelOrigin
     /// </summary>
     public partial class RoomAdd1 : Window
     {
-        bool TV = false;
-
+        
         public RoomAdd1()
         {
             InitializeComponent();
+          //  checkBox.IsChecked.Value = false;
         }
 
 
         private void checkBox_Checked(object sender, RoutedEventArgs e)
         {
-            TV = true;
+          //  TV = true;
         }
 
         private void checkBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            TV = false;
+          //  TV = false;
         }
-
+        
         private void buttonSubmit_Click_1(object sender, RoutedEventArgs e)
         {
+            bool TV = tvCheck();
             if (textBoxBeds.Text == "" || textBoxNum.Text == "")
             {
                 MessageBox.Show("Please enter all fields before submitting.");
@@ -55,7 +56,7 @@ namespace HotelOrigin
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (textBoxBeds.Text != "" || textBoxNum.Text != "" || TV == true)
+            if (textBoxBeds.Text != "" || textBoxNum.Text != ""|| tvCheck() == true)
             {
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Unsaved changes. Are you sure you want to close this window?", "Unsaved Work", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
@@ -67,6 +68,20 @@ namespace HotelOrigin
             {
                 this.Close();
             }
+        }
+
+        private bool tvCheck()
+        {
+            bool x;
+            if (checkBox.IsChecked == null || checkBox.IsChecked == false)
+            {
+                x = false;
+            }
+            else
+            {
+                x = true;
+            }
+            return x;
         }
     }
 }

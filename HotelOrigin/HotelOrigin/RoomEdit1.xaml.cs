@@ -36,12 +36,13 @@ namespace HotelOrigin
             this.temp = x;
             textBoxNum.Text = temp.RoomNumber.ToString();
             textBoxBeds.Text = temp.Beds.ToString();
-            //            checkBox = temp.HasTV;
+            checkBox.IsChecked = temp.HasTV;
             tempID = temp.id;
         }
 
         private void buttonSubmit_Click_1(object sender, RoutedEventArgs e)
         {
+           
             var roomList = Owner as RoomGrid;
             if (textBoxBeds.Text == "" || textBoxNum.Text == "")
             {
@@ -52,7 +53,7 @@ namespace HotelOrigin
             {
                 temp.RoomNumber = Convert.ToInt32(textBoxNum.Text);
                 temp.Beds = Convert.ToInt32(textBoxBeds.Text);
- //TV something
+                temp.HasTV = tvCheck();
                 roomList.RefreshGrid();
                 this.Close();
             }
@@ -81,6 +82,20 @@ namespace HotelOrigin
         private void checkBox_Checked(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private bool tvCheck()
+        {
+            bool x;
+            if (checkBox.IsChecked == null || checkBox.IsChecked == false)
+            {
+                x = false;
+            }
+            else
+            {
+                x = true;
+            }
+            return x;
         }
     }
 }
