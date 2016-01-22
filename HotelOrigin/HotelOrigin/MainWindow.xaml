@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelOrigin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="282.979" Width="175">
+        Title="MainWindow" Height="282.979" Width="175" Closing="Window_Closing">
     <Grid>
         <Button x:Name="buttonCustMan" Content="Customer Management" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="138" Click="buttonCustMan_Click" Height="41"/>
         <Button x:Name="buttonRoomMan" Content="Room Management" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="138" Click="buttonRoomMan_Click" Height="41"/>
