@@ -27,7 +27,6 @@ namespace HotelOrigin
             InitializeComponent();
             comboBoxCust.ItemsSource = HotelOrigin.Core.Repository.CustomerRepository.customers;
             comboBoxCust.DisplayMemberPath = "lastName";
-            //            comboBoxCust.SelectedValuePath;
             comboBoxRoom.ItemsSource = HotelOrigin.Core.Repository.RoomRepository.rooms;
             comboBoxRoom.DisplayMemberPath = "RoomNumber";
         }
@@ -36,22 +35,41 @@ namespace HotelOrigin
         {
             DateTime ci = checkInDatePicker.SelectedDate ?? DateTime.Now;
             DateTime co = checkOutDatePicker.SelectedDate ?? DateTime.Now;
-            int f = Convert.ToInt32(comboBoxCust.SelectedValue.ToString());
-            Customer x = CustomerRepository.GetByID(f);
-            int j = Convert.ToInt32(comboBoxRoom.SelectedValue.ToString());
-            Rooms y = RoomRepository.GetByID(j);
 
             if (comboBoxCust.SelectedItem == null || comboBoxRoom.SelectedItem == null || checkInDatePicker.SelectedDate == null || checkOutDatePicker.SelectedDate == null)
             {
                 MessageBox.Show("Please enter all fields before submitting.");
             }
+            else if (dateCheck(ci, co) == false)
+            {
+                MessageBox.Show("Please ensure your Check-In Date is at least one day prior to your Check-Out Date.");
+            }
             else
             {
 
+                int f = Convert.ToInt32(comboBoxCust.SelectedValue.ToString());
+                Customer x = CustomerRepository.GetByID(f);
+                int j = Convert.ToInt32(comboBoxRoom.SelectedValue.ToString());
+                Rooms y = RoomRepository.GetByID(j);
                 ReservationRepository.Create(x, y, ci, co, textBoxNote.Text);
+
+                this.Close();
             }
 
-            this.Close();
+        }
+
+
+        private bool dateCheck(DateTime ci, DateTime co)
+        {
+            if (ci >= co)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)

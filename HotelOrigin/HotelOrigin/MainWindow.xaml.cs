@@ -36,8 +36,8 @@ namespace HotelOrigin
             LoadFromDiskRes();
             LoadFromDiskRoom();
 
-            
 
+            RoomRepository.idCounter = RoomRepository.GetLastID();
             CustomerRepository.idCounter = CustomerRepository.GetLastID();
         }
 
@@ -103,6 +103,7 @@ namespace HotelOrigin
                 ReservationRepository.reservations = JsonConvert.DeserializeObject<ObservableCollection<Reservations>>(json);
             }
         }
+
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

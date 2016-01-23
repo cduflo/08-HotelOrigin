@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using HotelOrigin.Core.Repository;
+using HotelOrigin.Core.Domain;
 
 namespace HotelOrigin
 {
@@ -19,9 +21,24 @@ namespace HotelOrigin
     /// </summary>
     public partial class ReservationEdit : Window
     {
+        Reservations temp { get; set; }
+        int tempID;
+
         public ReservationEdit()
         {
             InitializeComponent();
         }
+/*
+        public ReservationEdit(Reservations x) : this()
+        {
+            InitializeComponent();
+            this.temp = x;
+            comboBoxCust.Items = temp.Customer;
+            textBoxNum.Text = temp.RoomNumber.ToString();
+            textBoxBeds.Text = temp.Beds.ToString();
+            checkBox.IsChecked = temp.HasTV;
+            tempID = temp.id;
+        }
+*/
     }
 }

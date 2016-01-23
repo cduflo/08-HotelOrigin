@@ -23,7 +23,7 @@ namespace HotelOrigin
     {
         Rooms temp { get; set; }
         int tempID;
-        bool fieldsUpdated = true;
+        bool fieldsUpdated = false;
 
         public RoomEdit1()
         {
@@ -44,7 +44,7 @@ namespace HotelOrigin
         {
            
             var roomList = Owner as RoomGrid;
-            if (textBoxBeds.Text == "" || textBoxNum.Text == "")
+            if (fieldsUpdated)
             {
                 MessageBox.Show("Please ensure all fields are populated.");
 
@@ -57,15 +57,12 @@ namespace HotelOrigin
                 roomList.RefreshGrid();
                 this.Close();
             }
-          /*  else
-            {
-                this.Close();
-            }*/
         }
+
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (textBoxBeds.Text != "" || textBoxNum.Text != "" /*|| tempTV == true*/)
+            if (fieldsUpdated)
             {
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Unsaved changes. Are you sure you want to close this window?", "Unsaved Work", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
@@ -96,6 +93,30 @@ namespace HotelOrigin
                 x = true;
             }
             return x;
+        }
+
+        private void textBoxNum_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                fieldsUpdated = true;
+            }
+        }
+
+        private void textBoxBeds_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+                fieldsUpdated = true;
+            }
+        }
+
+        private void checkBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.IsLoaded)
+            {
+          //      fieldsUpdated = true;
+            }
         }
     }
 }

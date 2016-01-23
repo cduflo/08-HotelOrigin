@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelOrigin"
         mc:Ignorable="d"
-        Title="CustomerList" Height="308.633" Width="308.633">
+        Title="CustomerList" Height="308.633" Width="364.633">
     <Grid>
-        <DataGrid x:Name="dataGridCustomers" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="272" Height="222" MouseDoubleClick="dataGridCustomers_MouseDoubleClick"/>
-        <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Height="27" Margin="207,237,0,0" VerticalAlignment="Top" Width="75" Click="buttonAdd_Click"/>
+        <DataGrid x:Name="dataGridCustomers" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="327" Height="222" MouseDoubleClick="dataGridCustomers_MouseDoubleClick" AutoGenerateColumns="False"/>
+        <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Height="27" Margin="262,237,0,0" VerticalAlignment="Top" Width="75" Click="buttonAdd_Click"/>
         <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="75" Height="27" Click="buttonDelete_Click"/>
+        <Button x:Name="buttonEdit" Content="Edit" HorizontalAlignment="Left" Margin="135,238,0,0" VerticalAlignment="Top" Width="78" Height="27" Click="buttonEdit_Click"/>
 
     </Grid>
 </Window>

@@ -12,6 +12,7 @@ namespace HotelOrigin.Core.Repository
     public class ReservationRepository
     {
         public static ObservableCollection<HotelOrigin.Core.Domain.Reservations> reservations = new ObservableCollection<Domain.Reservations>();
+
         public static int idCounter = 0;
 
         public static Reservations Create(Customer cus, Rooms rm, DateTime ci, DateTime co, string note)

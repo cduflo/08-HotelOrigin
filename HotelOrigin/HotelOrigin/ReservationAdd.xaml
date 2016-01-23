@@ -16,7 +16,7 @@
         <Label x:Name="label2" Content="Check-In" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="72"/>
         <Label x:Name="label2_Copy" Content="Check-Out" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Width="72"/>
         <Label x:Name="label2_Copy1" Content="Notes" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="72"/>
-        <TextBox x:Name="textBoxNote" HorizontalAlignment="Left" Height="23" Margin="107,218,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxNote" HorizontalAlignment="Left" Height="23" Margin="107,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Left" Margin="12,265,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="buttonCancel_Click"/>
         <Button x:Name="buttonSubmit" Content="Submit" HorizontalAlignment="Left" Margin="152,265,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="buttonSubmit_Click"/>
 

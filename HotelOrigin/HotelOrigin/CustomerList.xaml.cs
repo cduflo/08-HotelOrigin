@@ -22,12 +22,25 @@ namespace HotelOrigin
     /// </summary>
     public partial class CustomerList : Window
     {
-
         public CustomerList()
         {
             InitializeComponent();
             dataGridCustomers.ItemsSource = HotelOrigin.Core.Repository.CustomerRepository.customers;
+
+            dataGridCustomers.Columns.Add(addColumn("Last Name","lastName"));
+            dataGridCustomers.Columns.Add(addColumn("FirstName","firstName"));    
+            dataGridCustomers.Columns.Add(addColumn("E-Mail","email"));
+            dataGridCustomers.Columns.Add(addColumn("Telephone","tele"));
+
             dataGridCustomers.IsReadOnly = true;
+        }
+
+        public DataGridTextColumn addColumn(string header, string source)
+        {
+            DataGridTextColumn x = new DataGridTextColumn();
+            x.Header = header;
+            x.Binding = new Binding(source);
+            return x;
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
@@ -61,6 +74,18 @@ namespace HotelOrigin
             dataGridCustomers.CommitEdit();
             dataGridCustomers.CommitEdit();
             dataGridCustomers.Items.Refresh();
+        }
+
+        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            Customer selected = dataGridCustomers.SelectedItem as Customer;
+            if (dataGridCustomers.SelectedItem == null)
+
+            { return; }
+
+            CustomerEdit editWin = new CustomerEdit(selected);
+            editWin.Owner = this;
+            editWin.ShowDialog();
         }
     }
 }

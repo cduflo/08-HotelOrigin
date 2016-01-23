@@ -54,5 +54,10 @@ namespace HotelOrigin
                 this.Close();
             }
         }
+
+        private void textBoxLast_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textBoxLast.SelectAll();
+        }
     }
 }

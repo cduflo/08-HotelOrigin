@@ -25,10 +25,23 @@ namespace HotelOrigin
         {
             InitializeComponent();
             dataGridRooms.ItemsSource = HotelOrigin.Core.Repository.RoomRepository.rooms;
+
+            dataGridRooms.Columns.Add(addColumn("Room", "RoomNumber"));
+            dataGridRooms.Columns.Add(addColumn("Beds", "Beds"));
+            dataGridRooms.Columns.Add(addColumn("TV", "HasTV"));
+ 
             dataGridRooms.IsReadOnly = true;
         }
 
-        private void buttonDelete_Click_1(object sender, RoutedEventArgs e)
+    public DataGridTextColumn addColumn(string header, string source)
+    {
+        DataGridTextColumn x = new DataGridTextColumn();
+        x.Header = header;
+        x.Binding = new Binding(source);
+        return x;
+    }
+
+    private void buttonDelete_Click_1(object sender, RoutedEventArgs e)
         {
             if (dataGridRooms.SelectedItem == null)
             { return; }
@@ -45,7 +58,7 @@ namespace HotelOrigin
         private void dataGridRooms_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Rooms selected = dataGridRooms.SelectedItem as Rooms;
-            if (selected.id < 1)
+            if (dataGridRooms.SelectedItem == null)
 
             { return; }
 

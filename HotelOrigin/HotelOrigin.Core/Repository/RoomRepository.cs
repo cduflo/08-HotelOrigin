@@ -42,5 +42,21 @@ namespace HotelOrigin.Core.Repository
             rooms.Remove(rm);
         }
 
+        public static int GetLastID()
+        {
+            List<int> IDS = new List<int>();
+            foreach (var x in rooms)
+            {
+                IDS.Add(x.id);
+            }
+            if (IDS.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return (IDS.Max());
+            }
+        }
     }
 }

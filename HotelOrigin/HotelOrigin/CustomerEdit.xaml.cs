@@ -68,22 +68,34 @@ namespace HotelOrigin
 
         private void textBoxFirst_TextChanged(object sender, TextChangedEventArgs e)
         {
-            fieldsUpdated = true;
+            if (this.IsLoaded)
+            {
+                fieldsUpdated = true;
+            }
         }
 
         private void textBoxLast_TextChanged(object sender, TextChangedEventArgs e)
         {
-            fieldsUpdated = true;
+            if (this.IsLoaded)
+            {
+                fieldsUpdated = true;
+            }
         }
 
         private void textBoxEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
-            fieldsUpdated = true;
+            if (this.IsLoaded)
+            {
+                fieldsUpdated = true;
+            }
         }
 
         private void textBoxTele_TextChanged(object sender, TextChangedEventArgs e)
         {
-            fieldsUpdated = true;
+            if (this.IsLoaded)
+            {
+                fieldsUpdated = true;
+            }
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
